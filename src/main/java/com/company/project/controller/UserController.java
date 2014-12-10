@@ -33,10 +33,18 @@ public class UserController {
         return "userList";
     }
 
+    /**
+     * 将请求需要返回的数据放在body中返回
+     * @param map
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/users")
     @ResponseBody
     public Object users(@RequestParam Map<String, Object> map, HttpServletRequest request) {
         List<User> users = userService.getAllUser();
+        String username = (String)map.get("username");
+        System.out.println("this is param(username)from client : "+username);
         return users;
     }
 }

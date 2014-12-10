@@ -7,6 +7,14 @@
   <script src="../static/js/user.js"></script>
 </head>
 <body>
-
+    this is user list page..
+    <p>
+        <table id="userTable">
+            <tr>
+                <th>username</th>
+                <th>password</th>
+            </tr>
+        </table>
+    </p>
 </body>
 </html>
