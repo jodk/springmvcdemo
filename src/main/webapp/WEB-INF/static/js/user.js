@@ -24,6 +24,25 @@ function getUsers(){
         }
     );
 }
+/*
+*发送user对象到后台
+*
+*/
+function addUser(){
+    var url = "/user/add";
+    var param = {username:"zhangdekun",password:"123456"};
+    $.ajax({
+        url:url,
+        type:'POST',
+        dataType:'json',
+        data:JSON.stringify(param),
+        contentType:'application/json',
+        success:function(data){
+            alert(data);
+        }
+    });
+}
 $(function(){
     getUsers();
+    addUser();
 });

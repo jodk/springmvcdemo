@@ -9,6 +9,7 @@ import com.company.project.model.User;
 import com.company.project.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -46,5 +47,16 @@ public class UserController {
         String username = (String)map.get("username");
         System.out.println("this is param(username)from client : "+username);
         return users;
+    }
+
+    @RequestMapping(value = "/add")
+    @ResponseBody
+    public Object add(@RequestBody User user, HttpServletRequest request) {
+        boolean isSuccess = false;
+        if(user !=null){
+            System.out.println("get user :username="+user.getUsername()+"  password="+user.getPassword());
+        }
+        userService.addUser();
+        return isSuccess;
     }
 }

@@ -4,7 +4,8 @@ import java.util.List;
 
 import com.company.project.dao.UserDao;
 import com.company.project.model.User;
-import com.jolbox.bonecp.BoneCPDataSource;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
 
+    private static Log log = LogFactory.getLog(UserService.class);
     @Autowired
     private UserDao userDao;
 
@@ -26,5 +28,6 @@ public class UserService {
     @Transactional(readOnly = false, rollbackFor = RuntimeException.class, propagation = Propagation.REQUIRED)
     public void addUser() {
         //TODO
+        log.info("add user");
     }
 }
